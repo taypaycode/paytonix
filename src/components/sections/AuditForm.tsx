@@ -5,6 +5,7 @@
 "use client";
 
 import { FormEvent, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { CalEmbed } from "@/components/ui/CalEmbed";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvzleqv";
@@ -17,12 +18,13 @@ const stackOptions = [
   "Other / hybrid stack",
 ] as const;
 
-type FormStatus = "idle" | "submitting" | "success" | "error";
+type FormStatus = "idle" | "submitting" | "error";
 
 /**
  * Technical audit intake form with Formspree submission and Cal.com embed.
  */
 export function AuditForm() {
+  const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -51,8 +53,8 @@ export function AuditForm() {
         );
       }
 
-      setStatus("success");
       form.reset();
+      router.push("/thank-you");
     } catch (err) {
       setStatus("error");
       setErrorMessage(
@@ -122,28 +124,8 @@ export function AuditForm() {
             >
               <input type="hidden" name="_subject" value="Paytonix Technical Audit Intake" />
 
-              {status === "success" ? (
-                <div
-                  className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-6"
-                  role="status"
-                >
-                  <p className="font-medium text-emerald-300">
-                    Intake received. We&apos;ll follow up within one business day.
-                  </p>
-                  <p className="mt-2 text-sm text-zinc-500">
-                    Lock your slot now—pick a time in the calendar below.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setStatus("idle")}
-                    className="mt-4 text-sm font-medium text-emerald-400/90 underline-offset-2 hover:text-emerald-300 hover:underline"
-                  >
-                    Submit another intake
-                  </button>
-                </div>
-              ) : (
-                <>
-                  {status === "error" && errorMessage && (
+              <>
+                {status === "error" && errorMessage && (
                     <div
                       className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-300"
                       role="alert"
@@ -252,8 +234,7 @@ export function AuditForm() {
                       ? "Submitting…"
                       : "Submit Technical Intake"}
                   </button>
-                </>
-              )}
+              </>
 
               <div className="mt-8 border-t border-white/[0.06] pt-8" id="book-audit">
                 <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
