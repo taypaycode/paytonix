@@ -9,6 +9,7 @@ import { HeroSection } from "@/components/hero/HeroSection";
 import { BeforeAfterMatrix } from "@/components/sections/BeforeAfterMatrix";
 import { CapabilitiesGrid } from "@/components/sections/CapabilitiesGrid";
 import { AuditForm } from "@/components/sections/AuditForm";
+import { LogoBlock } from "@/components/sections/LogoBlock";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
+        <LogoBlock />
         <BeforeAfterMatrix />
         <CapabilitiesGrid />
         <AuditForm />
