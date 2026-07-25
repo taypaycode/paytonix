@@ -3,10 +3,13 @@
  * Minimal top navigation for Paytonix landing.
  */
 
+import Link from "next/link";
+
 const navLinks = [
-  { href: "/#matrix", label: "Operational Matrix" },
-  { href: "/#capabilities", label: "Capabilities" },
-  { href: "/#audit", label: "Technical Audit" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#detect", label: "What We Detect" },
+  { href: "/#assessment", label: "Assessment" },
+  { href: "/#about", label: "About" },
 ] as const;
 
 /**
@@ -16,14 +19,14 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-zinc-950/80 backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           <span className="flex h-8 w-8 items-center justify-center rounded-md border border-emerald-500/30 bg-emerald-500/10 font-mono text-xs font-semibold text-emerald-400 transition group-hover:border-emerald-400/50 group-hover:shadow-[0_0_20px_var(--glow-emerald)]">
             P
           </span>
           <span className="text-sm font-semibold tracking-tight text-zinc-100">
             Paytonix
           </span>
-        </a>
+        </Link>
 
         <nav
           className="hidden items-center gap-8 md:flex"
@@ -40,12 +43,12 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <a
-          href="/#audit"
+        <Link
+          href="/#request-assessment"
           className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-200 transition hover:border-emerald-500/40 hover:text-emerald-300"
         >
-          Request Audit
-        </a>
+          Request an Assessment
+        </Link>
       </div>
     </header>
   );

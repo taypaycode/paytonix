@@ -15,14 +15,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Paytonix | Single Pane of Glass for Founders & Executives",
+  title: "Paytonix | Revenue Data Reliability",
   description:
-    "Stop running on delayed data and spreadsheet chaos. Unified marketing, sales, and financial dashboards—enterprise-grade architecture without full-time overhead.",
+    "Paytonix detects and repairs the breaks between marketing platforms, customer journeys, CRM records, warehouse models, and revenue reporting.",
   metadataBase: new URL("https://paytonix.net"),
   openGraph: {
-    title: "Paytonix — Operational Clarity for Growth Leaders",
+    title: "Paytonix — Revenue Data Reliability",
     description:
-      "Your company's Single Pane of Glass. Real-time executive dashboards engineered by a Fractional CTO & Growth Architect.",
+      "Find where customer journeys, attribution, CRM records, and reported revenue break apart—before more budget is allocated using bad data.",
     url: "https://paytonix.net",
     siteName: "Paytonix",
     type: "website",

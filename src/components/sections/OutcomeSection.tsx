@@ -1,50 +1,56 @@
 /**
- * src/components/sections/BeforeAfterMatrix.tsx
- * Scannable before/after operational friction matrix.
+ * src/components/sections/OutcomeSection.tsx
+ * Before/after matrix showing the shift from disconnected activity to defensible revenue.
  */
 
 const rows = [
   {
-    friction:
-      "Fragile, human-error-prone Excel sheets tracking core revenue.",
-    fix: "Automated, centralized data pipelines feeding real-time BI dashboards.",
+    before: "Marketing platforms report conversions differently.",
+    after: "One mapped customer and revenue journey.",
   },
   {
-    friction:
-      "Siloed MarTech tools and broken APIs that don't talk to each other.",
-    fix: "Robust, cross-platform API integration and unified customer profiles.",
+    before: "Customer identities fragment across sessions and tools.",
+    after: "Defined ownership for every source and transformation.",
   },
   {
-    friction:
-      "Flying blind on marketing spend and actual customer acquisition costs.",
-    fix: "Instant, verifiable visibility into exact profit margins and scaling levers.",
+    before: "CRM stages do not reconcile with warehouse records.",
+    after:
+      "Automated checks for missing, duplicated, delayed, or malformed data.",
+  },
+  {
+    before: "Analysts repeatedly repair spreadsheets and one-off queries.",
+    after: "Reconciled campaign, CRM, warehouse, and revenue reporting.",
+  },
+  {
+    before: "Leadership receives competing versions of revenue.",
+    after: "A clear record of where every important number came from.",
   },
 ] as const;
 
 /**
- * Before/after operational matrix section.
+ * The Paytonix Outcome section — before/after matrix of the revenue-data chain.
  */
-export function BeforeAfterMatrix() {
+export function OutcomeSection() {
   return (
     <section
-      id="matrix"
+      id="outcome"
       className="border-b border-white/[0.06] bg-zinc-950"
-      aria-labelledby="matrix-heading"
+      aria-labelledby="outcome-heading"
     >
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
           <p className="font-mono text-xs uppercase tracking-widest text-sky-400/90">
-            Operational Matrix
+            The Paytonix Outcome
           </p>
           <h2
-            id="matrix-heading"
+            id="outcome-heading"
             className="mt-2 text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl"
           >
-            From friction to absolute clarity
+            From disconnected activity to defensible revenue
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-zinc-500 sm:text-base">
-            What founders feel day-to-day—and what changes when your data stack
-            is engineered as a single source of truth.
+            Paytonix connects the technical evidence behind each revenue
+            decision.
           </p>
         </div>
 
@@ -52,12 +58,12 @@ export function BeforeAfterMatrix() {
           <div className="grid grid-cols-1 border-b border-white/[0.06] bg-zinc-900/50 sm:grid-cols-2">
             <div className="border-b border-white/[0.06] px-4 py-3 sm:border-b-0 sm:border-r">
               <span className="font-mono text-[10px] uppercase tracking-widest text-red-400/80">
-                The Friction
+                Before
               </span>
             </div>
             <div className="px-4 py-3">
               <span className="font-mono text-[10px] uppercase tracking-widest text-emerald-400/90">
-                The Paytonix Fix
+                After
               </span>
             </div>
           </div>
@@ -75,7 +81,7 @@ export function BeforeAfterMatrix() {
                   ×
                 </span>
                 <p className="text-sm leading-relaxed text-zinc-400">
-                  {row.friction}
+                  {row.before}
                 </p>
               </div>
               <div className="flex gap-3 bg-emerald-500/[0.03] p-5">
@@ -86,7 +92,7 @@ export function BeforeAfterMatrix() {
                   ✓
                 </span>
                 <p className="text-sm leading-relaxed text-zinc-200">
-                  {row.fix}
+                  {row.after}
                 </p>
               </div>
             </div>
