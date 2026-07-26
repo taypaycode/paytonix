@@ -7,6 +7,7 @@
 import { FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CalEmbed } from "@/components/ui/CalEmbed";
+import { trackFunnelEvent } from "@/lib/analytics";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvzleqv";
 
@@ -65,8 +66,15 @@ type FormStatus = "idle" | "submitting" | "error";
 export function AssessmentForm() {
   const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
+  const hasTrackedStart = useRef(false);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  function handleFormInteraction() {
+    if (hasTrackedStart.current) return;
+    hasTrackedStart.current = true;
+    trackFunnelEvent("start_assessment_form");
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -92,6 +100,7 @@ export function AssessmentForm() {
         );
       }
 
+      trackFunnelEvent("submit_assessment_form");
       form.reset();
       router.push("/thank-you");
     } catch (err) {
@@ -120,30 +129,31 @@ export function AssessmentForm() {
             >
               Start with the journey you trust least.
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+            <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               Tell us where the revenue-data chain feels unreliable. We&apos;ll
               confirm scope, access, and timing before any engagement begins.
             </p>
-            <ul className="mt-8 space-y-3 text-sm text-zinc-500">
+            <ul className="mt-8 space-y-3 text-sm text-zinc-400">
               <li className="flex gap-2">
-                <span className="font-mono text-emerald-500/70">→</span>
+                <span className="font-mono text-emerald-400/90">→</span>
                 Scoped to one customer-to-revenue journey
               </li>
               <li className="flex gap-2">
-                <span className="font-mono text-emerald-500/70">→</span>
+                <span className="font-mono text-emerald-400/90">→</span>
                 Fixed price, fixed timeline
               </li>
               <li className="flex gap-2">
-                <span className="font-mono text-emerald-500/70">→</span>
+                <span className="font-mono text-emerald-400/90">→</span>
                 We&apos;ll tell you directly if it&apos;s not the right fit
               </li>
             </ul>
-            <p className="mt-8 text-sm text-zinc-500">
+            <p className="mt-8 text-sm text-zinc-400">
               Prefer to skip the form?{" "}
               <a
                 href="https://cal.com/taylor-payton-c2gr6m/tech-growth-audit"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackFunnelEvent("book_qualification_call")}
                 className="font-medium text-emerald-400/90 underline-offset-2 hover:text-emerald-300 hover:underline"
               >
                 Book a qualification call directly
@@ -156,6 +166,7 @@ export function AssessmentForm() {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
+              onChange={handleFormInteraction}
               action={FORMSPREE_ENDPOINT}
               method="POST"
               className="rounded-xl border border-white/[0.08] bg-zinc-900/30 p-6 sm:p-8"
@@ -191,7 +202,7 @@ export function AssessmentForm() {
                       required
                       disabled={status === "submitting"}
                       placeholder="e.g. Paid social leads through to closed-won revenue in Salesforce"
-                      className="mt-2 w-full resize-y rounded-md border border-white/10 bg-zinc-950/80 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 disabled:opacity-60"
+                      className="mt-2 w-full resize-y rounded-md border border-white/10 bg-zinc-950/80 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-400 focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 disabled:opacity-60"
                     />
                   </div>
 
@@ -209,7 +220,7 @@ export function AssessmentForm() {
                       required
                       disabled={status === "submitting"}
                       placeholder="e.g. Meta Ads, HubSpot, Salesforce, BigQuery"
-                      className="mt-2 w-full rounded-md border border-white/10 bg-zinc-950/80 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 disabled:opacity-60"
+                      className="mt-2 w-full rounded-md border border-white/10 bg-zinc-950/80 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-400 focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 disabled:opacity-60"
                     />
                   </div>
 
@@ -227,7 +238,7 @@ export function AssessmentForm() {
                       required
                       disabled={status === "submitting"}
                       placeholder="e.g. CRM and warehouse revenue no longer match"
-                      className="mt-2 w-full resize-y rounded-md border border-white/10 bg-zinc-950/80 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 disabled:opacity-60"
+                      className="mt-2 w-full resize-y rounded-md border border-white/10 bg-zinc-950/80 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-400 focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 disabled:opacity-60"
                     />
                   </div>
 
@@ -245,7 +256,7 @@ export function AssessmentForm() {
                       required
                       disabled={status === "submitting"}
                       placeholder="e.g. Reallocating Q3 acquisition spend across channels"
-                      className="mt-2 w-full resize-y rounded-md border border-white/10 bg-zinc-950/80 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 disabled:opacity-60"
+                      className="mt-2 w-full resize-y rounded-md border border-white/10 bg-zinc-950/80 px-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-400 focus:border-emerald-500/50 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 disabled:opacity-60"
                     />
                   </div>
 
@@ -459,10 +470,10 @@ export function AssessmentForm() {
               </>
 
               <div className="mt-8 border-t border-white/[0.06] pt-8" id="book-assessment">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
                   Schedule a qualification call
                 </p>
-                <p className="mt-1 text-sm text-zinc-500">
+                <p className="mt-1 text-sm text-zinc-400">
                   15 minutes to confirm fit before any assessment begins.
                 </p>
                 <div className="mt-4">

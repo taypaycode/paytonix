@@ -94,14 +94,14 @@ export function DetectionGrid() {
               <h3 className="text-lg font-semibold text-zinc-100">
                 {mode.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-500 group-hover:text-zinc-400">
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400 group-hover:text-zinc-400">
                 {mode.description}
               </p>
               <ul className="mt-5 space-y-2">
                 {mode.signals.map((signal) => (
                   <li
                     key={signal}
-                    className="flex gap-2 text-xs leading-relaxed text-zinc-500"
+                    className="flex gap-2 text-xs leading-relaxed text-zinc-400"
                   >
                     <span className="mt-0.5 font-mono text-amber-500/60">–</span>
                     {signal}

@@ -45,7 +45,7 @@ export function WhyPaytonix() {
             >
               Marketing context. Data-engineering rigor.
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+            <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               Most teams have specialists at individual layers:
             </p>
             <ul className="mt-4 space-y-2.5">
@@ -54,7 +54,7 @@ export function WhyPaytonix() {
                   key={item}
                   className="flex gap-2.5 text-sm leading-relaxed text-zinc-400"
                 >
-                  <span className="mt-0.5 font-mono text-zinc-600">–</span>
+                  <span className="mt-0.5 font-mono text-zinc-400">–</span>
                   {item}
                 </li>
               ))}
@@ -69,14 +69,14 @@ export function WhyPaytonix() {
           </div>
 
           <div className="lg:col-span-2">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
               Capabilities
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {capabilities.map((capability) => (
                 <span
                   key={capability}
-                  className="rounded border border-white/10 bg-zinc-900/80 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-zinc-500 transition hover:border-zinc-600 hover:text-zinc-400"
+                  className="rounded border border-white/10 bg-zinc-900/80 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-zinc-400 transition hover:border-zinc-600 hover:text-zinc-400"
                 >
                   {capability}
                 </span>

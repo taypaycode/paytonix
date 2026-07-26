@@ -7,10 +7,13 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Paytonix",
-  robots: { index: false, follow: false },
+  title: "Terms of Service",
+  description:
+    "Engagement terms for the Revenue Data Integrity Assessment and related Paytonix services.",
+  alternates: { canonical: `${SITE_URL}/terms` },
 };
 
 /**
@@ -26,7 +29,7 @@ export default function TermsPage() {
             <h1 className="text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl">
               Terms of Service
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+            <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               This page is being finalized. Engagement-specific terms,
               including scope, deliverables, and pricing for the Revenue
               Data Integrity Assessment, are confirmed in writing before

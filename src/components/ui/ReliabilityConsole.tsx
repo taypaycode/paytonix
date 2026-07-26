@@ -73,7 +73,7 @@ export function ReliabilityConsole() {
           <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
           <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
           <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
-          <span className="ml-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+          <span className="ml-2 font-mono text-[10px] uppercase tracking-widest text-zinc-400">
             Revenue Data Integrity
           </span>
           <span className="ml-auto flex items-center gap-1.5">
@@ -98,7 +98,7 @@ export function ReliabilityConsole() {
                   className="rounded-lg border border-white/[0.06] bg-zinc-950/60 p-3"
                 >
                   <div className="flex items-center justify-between gap-2">
-                    <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+                    <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-zinc-400">
                       <span className={`h-1.5 w-1.5 rounded-full ${tone.dot}`} />
                       {row.label}
                     </span>
@@ -106,7 +106,7 @@ export function ReliabilityConsole() {
                       {row.value}
                     </span>
                   </div>
-                  <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-500">
+                  <p className="mt-1.5 text-[11px] leading-relaxed text-zinc-400">
                     {row.detail}
                   </p>
                   {typeof row.progress === "number" && (
@@ -122,7 +122,7 @@ export function ReliabilityConsole() {
             })}
           </ul>
 
-          <div className="mt-4 flex items-center justify-between border-t border-white/[0.06] pt-3 font-mono text-[10px] text-zinc-500">
+          <div className="mt-4 flex items-center justify-between border-t border-white/[0.06] pt-3 font-mono text-[10px] text-zinc-400">
             <span>Last validated: 9 minutes ago</span>
             <span className="flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse-glow" />

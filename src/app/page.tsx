@@ -5,6 +5,8 @@
 
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { homepageGraph } from "@/lib/schema";
 import { HeroSection } from "@/components/hero/HeroSection";
 import { LogoBlock } from "@/components/sections/LogoBlock";
 import { ProblemSection } from "@/components/sections/ProblemSection";
@@ -21,6 +23,7 @@ import { AssessmentForm } from "@/components/sections/AssessmentForm";
 export default function Home() {
   return (
     <>
+      <JsonLd data={homepageGraph()} />
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />

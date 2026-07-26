@@ -74,13 +74,13 @@ export function HowItWorks() {
               <span className="absolute -left-[calc(2rem+9px)] top-0.5 flex h-4 w-4 items-center justify-center rounded-full border border-emerald-500/40 bg-zinc-950 sm:-left-[calc(2.5rem+9px)]">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
               </span>
-              <span className="font-mono text-[11px] uppercase tracking-widest text-emerald-500/70">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-emerald-400/90">
                 {step.number}
               </span>
               <h3 className="mt-1 text-lg font-semibold text-zinc-100">
                 {step.title}
               </h3>
-              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-500">
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
                 {step.description}
               </p>
               {step.example && (

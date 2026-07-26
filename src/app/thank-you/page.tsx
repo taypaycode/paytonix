@@ -11,7 +11,7 @@ import { LeadFormConversion } from "@/components/analytics/LeadFormConversion";
 import { CalEmbed } from "@/components/ui/CalEmbed";
 
 export const metadata: Metadata = {
-  title: "Thank You | Paytonix",
+  title: "Thank You",
   description: "Your assessment request was received.",
   robots: { index: false, follow: false },
 };
@@ -64,7 +64,7 @@ export default function ThankYouPage() {
           <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
             <h2
               id="thank-you-calendar-heading"
-              className="text-center font-mono text-xs uppercase tracking-widest text-zinc-500"
+              className="text-center font-mono text-xs uppercase tracking-widest text-zinc-400"
             >
               Schedule a qualification call
             </h2>

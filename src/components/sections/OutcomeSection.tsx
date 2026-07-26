@@ -48,7 +48,7 @@ export function OutcomeSection() {
           >
             From disconnected activity to defensible revenue
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-500 sm:text-base">
+          <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
             Paytonix connects the technical evidence behind each revenue
             decision.
           </p>

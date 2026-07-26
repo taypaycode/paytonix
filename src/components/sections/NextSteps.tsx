@@ -55,11 +55,11 @@ export function NextSteps() {
             <h3 className="mt-4 text-lg font-semibold text-zinc-100">
               Repair Sprint
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
               Correct a defined set of high-priority failures uncovered
               during the assessment.
             </p>
-            <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-zinc-400">
               Typical work may include
             </p>
             <ul className="mt-3 flex-1 space-y-2">
@@ -73,7 +73,7 @@ export function NextSteps() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 border-t border-white/[0.06] pt-4 text-xs text-zinc-500">
+            <p className="mt-5 border-t border-white/[0.06] pt-4 text-xs text-zinc-400">
               Fixed scope based on validated findings.
             </p>
           </article>
@@ -85,11 +85,11 @@ export function NextSteps() {
             <h3 className="mt-4 text-lg font-semibold text-zinc-100">
               Continuous Reliability Monitoring
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
               Maintain automated controls around the revenue-data chain after
               it has been mapped and validated.
             </p>
-            <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-zinc-400">
               Potential monitoring includes
             </p>
             <ul className="mt-3 flex-1 space-y-2">
@@ -103,7 +103,7 @@ export function NextSteps() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 border-t border-white/[0.06] pt-4 text-xs text-zinc-500">
+            <p className="mt-5 border-t border-white/[0.06] pt-4 text-xs text-zinc-400">
               Monitoring availability and pricing depend on stack complexity
               and supported integrations.
             </p>

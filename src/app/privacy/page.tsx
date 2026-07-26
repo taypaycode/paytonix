@@ -7,10 +7,13 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Paytonix",
-  robots: { index: false, follow: false },
+  title: "Privacy Policy",
+  description:
+    "How Paytonix LLC handles personal data submitted through the assessment intake form.",
+  alternates: { canonical: `${SITE_URL}/privacy` },
 };
 
 /**
@@ -26,7 +29,7 @@ export default function PrivacyPage() {
             <h1 className="text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl">
               Privacy Policy
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+            <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               This page is being finalized. Paytonix LLC does not sell
               personal data. Information submitted through our assessment
               intake form is used solely to evaluate and respond to your

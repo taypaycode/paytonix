@@ -1,7 +1,11 @@
 /**
  * src/components/sections/AssessmentOffer.tsx
  * Entry offer — the Revenue Data Integrity Assessment pricing and scope.
+ * This is the concise homepage summary; full scope, exclusions, and FAQ
+ * live on the dedicated /revenue-data-integrity-assessment page.
  */
+
+import Link from "next/link";
 
 const included = [
   "One customer-to-revenue journey map",
@@ -22,10 +26,23 @@ const receiveQuestions = [
   "Which controls would prevent recurrence?",
 ] as const;
 
+const notIncluded = [
+  "Implementing fixes (scoped separately as a Repair Sprint)",
+  "Ongoing monitoring (offered as a post-assessment engagement)",
+  "Auditing more than one customer-to-revenue journey",
+  "Systems where read-only access cannot be provided",
+] as const;
+
 /**
  * Assessment offer section — pricing, scope, and qualification for the entry engagement.
+ * @param showDetailLink - Set false when this renders on the dedicated
+ * assessment page itself, where a "view full details" link would be circular.
  */
-export function AssessmentOffer() {
+export function AssessmentOffer({
+  showDetailLink = true,
+}: {
+  showDetailLink?: boolean;
+}) {
   return (
     <section
       id="assessment"
@@ -54,9 +71,9 @@ export function AssessmentOffer() {
                 <span className="text-3xl font-semibold tracking-tight text-zinc-50">
                   $3,500
                 </span>
-                <span className="text-sm text-zinc-500">starting at</span>
+                <span className="text-sm text-zinc-400">starting at</span>
               </div>
-              <p className="mt-1 text-xs text-zinc-500">
+              <p className="mt-1 text-xs text-zinc-400">
                 Delivered in approximately 7–10 business days after access and
                 scope confirmation.
               </p>
@@ -68,16 +85,25 @@ export function AssessmentOffer() {
                 Request an Assessment
               </a>
 
-              <p className="mt-5 text-xs leading-relaxed text-zinc-500">
+              <p className="mt-5 text-xs leading-relaxed text-zinc-400">
                 Best suited to companies with multiple marketing systems, an
                 established CRM or warehouse, and meaningful acquisition or
                 lifecycle spend.
               </p>
+
+              {showDetailLink && (
+                <Link
+                  href="/revenue-data-integrity-assessment"
+                  className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-zinc-400 underline-offset-2 hover:text-emerald-300 hover:underline"
+                >
+                  View full scope, exclusions &amp; FAQ →
+                </Link>
+              )}
             </div>
 
             <div className="grid gap-8 lg:col-span-3 sm:grid-cols-2">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
                   Included
                 </p>
                 <ul className="mt-4 space-y-2.5">
@@ -99,7 +125,7 @@ export function AssessmentOffer() {
               </div>
 
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
                   You receive
                 </p>
                 <p className="mt-4 text-sm text-zinc-400">
@@ -116,6 +142,30 @@ export function AssessmentOffer() {
                   ))}
                 </ul>
               </div>
+
+              {!showDetailLink && (
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
+                    Not included at this price
+                  </p>
+                  <ul className="mt-4 space-y-2.5">
+                    {notIncluded.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-2.5 text-sm leading-relaxed text-zinc-400"
+                      >
+                        <span
+                          className="mt-0.5 font-mono text-zinc-400"
+                          aria-hidden="true"
+                        >
+                          ×
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ export function FinalCta() {
           Request a Revenue Data Integrity Assessment
         </a>
 
-        <p className="mx-auto mt-5 max-w-md text-xs leading-relaxed text-zinc-500">
+        <p className="mx-auto mt-5 max-w-md text-xs leading-relaxed text-zinc-400">
           You&apos;ll receive a short qualification form first. If the
           assessment is not appropriate for your stack or stage, we&apos;ll
           tell you directly.

@@ -59,7 +59,7 @@ export function ProblemSection() {
 
           <div className="lg:col-span-2">
             <div className="rounded-xl border border-white/[0.08] bg-zinc-900/40 p-6">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
                 But your team cannot confidently answer
               </p>
               <ul className="mt-4 space-y-3">

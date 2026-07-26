@@ -37,7 +37,7 @@ const statusStyles: Record<
   unverified: {
     dot: "bg-zinc-500",
     ring: "ring-zinc-500/20",
-    text: "text-zinc-500",
+    text: "text-zinc-400",
     badge: "Unverified",
   },
 };

@@ -49,7 +49,7 @@ export function LogoBlock() {
       aria-label="Experience across leading organizations"
     >
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-        <p className="mb-8 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">
+        <p className="mb-8 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400">
           Experience engineering marketing and revenue-data systems for teams including
         </p>
 

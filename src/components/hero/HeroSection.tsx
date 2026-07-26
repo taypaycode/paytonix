@@ -37,7 +37,7 @@ export function HeroSection() {
               and reported revenue break apart—before more budget is
               allocated using bad data.
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+            <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               Paytonix traces revenue data from first touch through closed
               business, identifies the gaps costing you visibility and
               wasted spend, and installs controls that keep your reporting
@@ -59,7 +59,7 @@ export function HeroSection() {
               </a>
             </div>
 
-            <p className="mt-8 border-t border-white/[0.06] pt-6 text-xs text-zinc-500">
+            <p className="mt-8 border-t border-white/[0.06] pt-6 text-xs text-zinc-400">
               Built for growth, RevOps, MarTech, and data teams operating
               across multiple platforms.
             </p>
@@ -67,6 +67,9 @@ export function HeroSection() {
 
           <div className="lg:pl-4">
             <ReliabilityConsole />
+            <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-zinc-400 lg:text-left">
+              Illustrative example — not a live customer account
+            </p>
           </div>
         </div>
       </div>

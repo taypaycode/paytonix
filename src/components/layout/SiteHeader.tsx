@@ -8,8 +8,9 @@ import Link from "next/link";
 const navLinks = [
   { href: "/#how-it-works", label: "How It Works" },
   { href: "/#detect", label: "What We Detect" },
-  { href: "/#assessment", label: "Assessment" },
-  { href: "/#about", label: "About" },
+  { href: "/revenue-data-integrity-assessment", label: "Assessment" },
+  { href: "/insights", label: "Insights" },
+  { href: "/about", label: "About" },
 ] as const;
 
 /**
@@ -33,18 +34,18 @@ export function SiteHeader() {
           aria-label="Primary"
         >
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
-              className="text-xs font-medium uppercase tracking-wider text-zinc-500 transition hover:text-zinc-200"
+              className="text-xs font-medium uppercase tracking-wider text-zinc-400 transition hover:text-zinc-200"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <Link
-          href="/#request-assessment"
+          href="/revenue-data-integrity-assessment#request-assessment"
           className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-200 transition hover:border-emerald-500/40 hover:text-emerald-300"
         >
           Request an Assessment

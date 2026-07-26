@@ -87,3 +87,25 @@ body {
 .animate-metric-tick {
   animation: metric-tick 4s ease-in-out infinite;
 }
+
+/* Consistent, visible, on-brand focus states across every interactive element. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent-emerald);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-pulse-glow,
+  .animate-metric-tick {
+    animation: none;
+  }
+}
