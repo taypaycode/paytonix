@@ -1,6 +1,9 @@
 /**
  * src/app/page.tsx
- * Paytonix landing page — core layout composition.
+ * Paytonix landing page — Revenue Systems Engineering positioning.
+ * Section order: Hero → Logo strip → Problem → Outcome → Capabilities →
+ * How We Work → MarTechOS proof → Engagement models → Why Paytonix →
+ * Founder → Final CTA (3-path) → Qualification form.
  */
 
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -13,7 +16,7 @@ import { ProblemSection } from "@/components/sections/ProblemSection";
 import { OutcomeSection } from "@/components/sections/OutcomeSection";
 import { DetectionGrid } from "@/components/sections/DetectionGrid";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { AssessmentOffer } from "@/components/sections/AssessmentOffer";
+import { MarTechOSProof } from "@/components/sections/MarTechOSProof";
 import { NextSteps } from "@/components/sections/NextSteps";
 import { WhyPaytonix } from "@/components/sections/WhyPaytonix";
 import { FounderSection } from "@/components/sections/FounderSection";
@@ -32,7 +35,7 @@ export default function Home() {
         <OutcomeSection />
         <DetectionGrid />
         <HowItWorks />
-        <AssessmentOffer />
+        <MarTechOSProof />
         <NextSteps />
         <WhyPaytonix />
         <FounderSection />

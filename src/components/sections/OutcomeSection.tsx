@@ -1,34 +1,38 @@
 /**
  * src/components/sections/OutcomeSection.tsx
- * Before/after matrix showing the shift from disconnected activity to defensible revenue.
+ * Before/after matrix showing the shift from fragmented, manually-connected
+ * platforms to a reliable operating system across revenue systems.
  */
 
 const rows = [
   {
-    before: "Marketing platforms report conversions differently.",
-    after: "One mapped customer and revenue journey.",
+    before: "Campaign and customer data live in disconnected tools.",
+    after: "A mapped operating model across marketing, CRM, sales, data, and reporting.",
   },
   {
-    before: "Customer identities fragment across sessions and tools.",
-    after: "Defined ownership for every source and transformation.",
+    before: "Analysts and operators maintain one-off queries, scripts, spreadsheets, and manual procedures.",
+    after: "Reusable pipelines, integrations, workflows, and controls.",
   },
   {
-    before: "CRM stages do not reconcile with warehouse records.",
-    after:
-      "Automated checks for missing, duplicated, delayed, or malformed data.",
+    before: "AI tools generate useful output but stop short of production workflows.",
+    after: "Validated LLM systems connected to APIs, CRM actions, business rules, and human approval gates.",
   },
   {
-    before: "Analysts repeatedly repair spreadsheets and one-off queries.",
-    after: "Reconciled campaign, CRM, warehouse, and revenue reporting.",
+    before: "CRM, warehouse, billing, and dashboards disagree.",
+    after: "Reconciled entities, definitions, lineage, and revenue reporting.",
   },
   {
-    before: "Leadership receives competing versions of revenue.",
-    after: "A clear record of where every important number came from.",
+    before: "Campaign setup requires repeated exports, imports, segmentation, and manual status updates.",
+    after: "Automated orchestration across enrichment, CRM, email, paid media, and reporting.",
+  },
+  {
+    before: "Leadership receives competing versions of the business.",
+    after: "A system that explains where important numbers and operational states came from.",
   },
 ] as const;
 
 /**
- * The Paytonix Outcome section — before/after matrix of the revenue-data chain.
+ * The Paytonix Outcome section — before/after matrix from fragmented systems to operating system.
  */
 export function OutcomeSection() {
   return (
@@ -46,11 +50,11 @@ export function OutcomeSection() {
             id="outcome-heading"
             className="mt-2 text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl"
           >
-            From disconnected activity to defensible revenue
+            From fragmented platforms to an operating system.
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
-            Paytonix connects the technical evidence behind each revenue
-            decision.
+            Paytonix builds the technical layer that makes revenue systems
+            operate—not just report.
           </p>
         </div>
 

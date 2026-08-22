@@ -15,7 +15,14 @@ export type FunnelEvent =
   | "book_qualification_call"
   | "view_methodology_article"
   | "qualified_lead"
-  | "assessment_purchased";
+  | "assessment_purchased"
+  // MarTechOS product funnel
+  | "martechos_lp_view"
+  | "martechos_hero_cta_click"
+  | "martechos_pricing_view"
+  | "martechos_checkout_click"
+  | "martechos_faq_expand"
+  | "martechos_final_cta_click";
 
 /**
  * Sends a funnel event to GA4 via gtag, if configured. Safe to call

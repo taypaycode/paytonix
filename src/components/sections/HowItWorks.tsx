@@ -1,52 +1,55 @@
 /**
  * src/components/sections/HowItWorks.tsx
- * Five-step engagement model: Trace, Test, Quantify, Repair, Monitor.
+ * Five-step engagement model: Assess, Architect, Build, Automate, Monitor.
  */
 
 type Step = {
   number: string;
   title: string;
   description: string;
-  example?: string;
+  detail?: string;
 };
 
 const steps: readonly Step[] = [
   {
     number: "01",
-    title: "Trace",
+    title: "Assess",
     description:
-      "We select one commercially important journey and map it from acquisition through customer and revenue reporting.",
-    example:
-      "Campaign → Landing Page → Conversion Event → CRM → Warehouse → Executive Dashboard",
+      "We identify the systems, workflows, bottlenecks, failure modes, and business outcomes that matter.",
+    detail:
+      "This may involve tracing a customer journey, reviewing CRM architecture, examining a warehouse model, auditing an automation workflow, or scoping an AI system.",
   },
   {
     number: "02",
-    title: "Test",
+    title: "Architect",
     description:
-      "We validate the events, identifiers, transformations, joins, and business definitions supporting that journey.",
+      "We define the system boundaries, canonical entities, data contracts, integrations, control points, and operating model.",
+    detail: "The goal is not to add more tools—it is to decide how the tools should work together.",
   },
   {
     number: "03",
-    title: "Quantify",
+    title: "Build",
     description:
-      "We identify the business exposure: wasted spend, unattributed revenue, duplicated results, delayed reporting, and recurring manual work.",
+      "We implement the technical foundation: APIs, pipelines, SQL models, CRM integrations, LLM workflows, dashboards, webhooks, orchestration, validation, and automation.",
   },
   {
     number: "04",
-    title: "Repair",
+    title: "Automate",
     description:
-      "If requested, we correct the highest-value failures through a separately scoped implementation sprint.",
+      "We remove repetitive operational work where the process is understood well enough to encode safely.",
+    detail:
+      "That may include targeting, enrichment, campaign creation, list management, CRM writeback, lifecycle actions, reporting, QA, and sync logic.",
   },
   {
     number: "05",
     title: "Monitor",
     description:
-      "For qualified systems, recurring controls continue testing data freshness, completeness, identity coverage, attribution, and revenue reconciliation.",
+      "Where appropriate, we add controls for failures, freshness, schema drift, identity coverage, workflow execution, revenue reconciliation, and attribution integrity.",
   },
 ] as const;
 
 /**
- * How It Works section outlining the Trace → Test → Quantify → Repair → Monitor model.
+ * How It Works section outlining the Assess → Architect → Build → Automate → Monitor model.
  */
 export function HowItWorks() {
   return (
@@ -58,13 +61,13 @@ export function HowItWorks() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="max-w-2xl">
           <p className="font-mono text-xs uppercase tracking-widest text-emerald-400/90">
-            How It Works
+            How We Work
           </p>
           <h2
             id="how-it-works-heading"
             className="mt-2 text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl"
           >
-            Start with one revenue journey—not a six-month transformation.
+            Assess → Architect → Build → Automate → Monitor
           </h2>
         </div>
 
@@ -83,9 +86,9 @@ export function HowItWorks() {
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
                 {step.description}
               </p>
-              {step.example && (
-                <p className="mt-3 inline-block rounded-md border border-white/[0.08] bg-zinc-900/50 px-3 py-2 font-mono text-[11px] leading-relaxed text-zinc-400">
-                  {step.example}
+              {step.detail && (
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
+                  {step.detail}
                 </p>
               )}
             </li>

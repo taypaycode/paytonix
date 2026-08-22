@@ -1,13 +1,16 @@
 /**
  * src/components/sections/WhyPaytonix.tsx
- * Positions Paytonix as the layer that works across marketing, engineering, and analytics boundaries.
+ * Cross-boundary positioning — Paytonix works where marketing, engineering,
+ * data, RevOps, AI, and platform specialists don't overlap.
  */
 
 const boundaries = [
   "Marketing understands campaigns but not warehouse logic.",
-  "Engineering understands pipelines but not attribution.",
-  "Analysts understand reports but do not own instrumentation.",
-  "Vendors understand their own platform but not the full revenue chain.",
+  "Engineering understands pipelines but not attribution or lifecycle operations.",
+  "Analysts understand reports but often do not own instrumentation or CRM behavior.",
+  "RevOps understands CRM workflows but may not own the underlying data architecture.",
+  "AI vendors understand models but not the operational systems the outputs must enter.",
+  "Platform vendors understand their own software but not the end-to-end revenue system.",
 ] as const;
 
 const capabilities = [
@@ -15,12 +18,24 @@ const capabilities = [
   "SQL",
   "BigQuery",
   "APIs",
+  "Salesforce",
   "CRM Integration",
+  "Marketing Automation",
+  "Webhooks",
   "Customer Identity",
   "Event Instrumentation",
   "Attribution",
   "Semantic Modeling",
   "Business Intelligence",
+  "Data Quality",
+  "Reverse ETL",
+  "LLM Workflows",
+  "Structured Outputs",
+  "AI Integration",
+  "Workflow Orchestration",
+  "Campaign Automation",
+  "Paid Media Automation",
+  "Revenue Analytics",
 ] as const;
 
 /**
@@ -43,7 +58,7 @@ export function WhyPaytonix() {
               id="why-paytonix-heading"
               className="mt-2 text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl"
             >
-              Marketing context. Data-engineering rigor.
+              Where MarTech, data engineering, software, automation, and AI meet.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-zinc-400">
               Most teams have specialists at individual layers:
@@ -63,8 +78,8 @@ export function WhyPaytonix() {
               Paytonix works across those boundaries.
             </p>
             <p className="mt-3 text-base font-medium leading-relaxed text-zinc-100">
-              The result is not another dashboard. It is a tested and
-              explainable system behind the dashboard.
+              The result is not another dashboard, integration, AI demo, or script.
+              It is a system that can be operated, explained, and improved.
             </p>
           </div>
 

@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const exploreLinks = [
   { href: "/revenue-data-integrity-assessment", label: "Assessment" },
+  { href: "/martechos", label: "MarTechOS" },
   { href: "/about", label: "About" },
   { href: "/insights", label: "Insights" },
 ] as const;

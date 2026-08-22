@@ -1,19 +1,24 @@
 /**
  * src/components/sections/ProblemSection.tsx
- * Names the underlying risk: dashboards report the end of an unverified chain.
+ * The Problem — fragmented systems create a stack full of powerful software
+ * that still depends on human glue. Broader than data-only framing.
  */
 
 const unansweredQuestions = [
   "Which campaigns create profitable customers—not merely leads?",
   "Which customer journeys actually contribute to revenue?",
-  "Where are prospects disappearing between platforms?",
-  "Does CRM revenue reconcile with finance and the warehouse?",
-  "Are missing events making good campaigns look ineffective?",
-  "Are duplicated records making weak campaigns look successful?",
+  "Where are prospects disappearing between systems?",
+  "Does CRM state reconcile with warehouse and finance data?",
+  "Which repetitive campaign operations can be automated safely?",
+  "Can AI-generated outputs be validated and written back into production systems?",
+  "Which workflows depend on tribal knowledge or manual intervention?",
+  "Can we change vendors without rebuilding the operating logic from scratch?",
+  "Which systems are producing the same business concept differently?",
+  "Where should we automate, integrate, or redesign before adding another tool?",
 ] as const;
 
 /**
- * The Problem section — establishes why polished dashboards can still be wrong.
+ * The Problem section — fragmented revenue systems and the human glue holding them together.
  */
 export function ProblemSection() {
   return (
@@ -30,37 +35,39 @@ export function ProblemSection() {
           id="problem-heading"
           className="mt-2 max-w-3xl text-2xl font-semibold leading-snug tracking-tight text-zinc-50 sm:text-3xl"
         >
-          The dashboard isn&apos;t the source of truth. It&apos;s the end of a
-          long chain of assumptions.
+          The dashboard is only the last mile.
         </h2>
 
         <div className="mt-8 grid gap-10 lg:grid-cols-5 lg:gap-16">
           <div className="max-w-2xl space-y-5 text-sm leading-relaxed text-zinc-400 sm:text-base lg:col-span-3">
             <p>
-              A customer sees an ad, visits several pages, returns on another
-              device, enters the CRM, progresses through a sales process, and
-              eventually produces revenue.
+              A modern revenue system spans ads, websites, analytics,
+              enrichment, CRM, lifecycle messaging, sales workflows, warehouses,
+              AI tools, and executive reporting.
             </p>
             <p>
-              Between those moments, identifiers disappear. Events fail.
-              Campaign fields change. Records duplicate. Models join at the
-              wrong grain. Revenue reaches the dashboard without a defensible
-              journey behind it.
+              Each platform may work perfectly on its own.
+            </p>
+            <p>
+              The failures happen between them.
+            </p>
+            <p>
+              Customer identities fragment. Campaign context disappears. CRM
+              state drifts from warehouse models. Automation logic lives in
+              one-off scripts. AI workflows stop short of production. Analysts
+              repair the same reporting problems repeatedly. Operators manually
+              coordinate steps that should be deterministic.
             </p>
             <p className="border-l-2 border-amber-500/40 pl-4 font-medium text-zinc-300">
-              The final report may still look polished.
-            </p>
-            <p>
-              When those answers are unreliable, marketing wastes budget,
-              analysts waste time reconciling numbers, and leadership loses
-              confidence in the entire system.
+              The result is a stack full of powerful software that still depends
+              on human glue.
             </p>
           </div>
 
           <div className="lg:col-span-2">
             <div className="rounded-xl border border-white/[0.08] bg-zinc-900/40 p-6">
               <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
-                But your team cannot confidently answer
+                Your team should be able to answer
               </p>
               <ul className="mt-4 space-y-3">
                 {unansweredQuestions.map((question) => (

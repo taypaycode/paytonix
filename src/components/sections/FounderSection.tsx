@@ -1,14 +1,13 @@
 /**
  * src/components/sections/FounderSection.tsx
  * Condensed founder-credibility teaser for the homepage. Full biography,
- * security & access practices, and evidence standards live on /about to
- * avoid duplicating large text blocks across pages.
+ * security & access practices, and evidence standards live on /about.
  */
 
 import Link from "next/link";
 
 /**
- * Built By Tay Payton teaser — short bio with a link to the full About page.
+ * Built By Tay Payton teaser — short systems-engineering bio with link to /about.
  */
 export function FounderSection() {
   return (
@@ -27,9 +26,16 @@ export function FounderSection() {
                 Built by Tay Payton
               </p>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-400">
-                A MarTech and customer-data architect who founded Paytonix
-                after repeatedly finding the same problem: companies weren&apos;t
-                lacking data, they were lacking confidence in it.
+                A MarTech, data, and revenue-systems architect who founded
+                Paytonix after repeatedly seeing the same pattern: companies
+                were buying more platforms while the real operating logic
+                between those platforms remained fragmented, manual, and
+                difficult to trust.
+              </p>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-400">
+                The work behind Paytonix spans analytics engineering, CRM and
+                warehouse architecture, marketing automation, campaign systems,
+                AI workflows, executive reporting, and custom software.
               </p>
             </div>
           </div>

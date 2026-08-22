@@ -6,9 +6,9 @@
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#detect", label: "What We Detect" },
-  { href: "/revenue-data-integrity-assessment", label: "Assessment" },
+  { href: "/#capabilities", label: "Capabilities" },
+  { href: "/#how-it-works", label: "How We Work" },
+  { href: "/martechos", label: "MarTechOS" },
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
 ] as const;
@@ -45,10 +45,10 @@ export function SiteHeader() {
         </nav>
 
         <Link
-          href="/revenue-data-integrity-assessment#request-assessment"
+          href="/#start"
           className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-zinc-200 transition hover:border-emerald-500/40 hover:text-emerald-300"
         >
-          Request an Assessment
+          Start a Project
         </Link>
       </div>
     </header>

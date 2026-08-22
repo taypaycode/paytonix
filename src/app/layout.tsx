@@ -18,19 +18,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Revenue Data Reliability & Attribution Audits | Paytonix",
+    default: "Paytonix — MarTech, Data, AI & Revenue Systems Engineering",
     template: "%s | Paytonix",
   },
   description:
-    "Find where customer journeys, campaign attribution, CRM records, warehouse models, and reported revenue break apart before more budget is wasted.",
+    "Paytonix architects and builds the technical systems connecting marketing, CRM, sales, data, AI, automation, and executive reporting.",
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Paytonix — Revenue Data Reliability",
+    title: "Paytonix — Build the Systems Behind Your Growth",
     description:
-      "Find where customer journeys, attribution, CRM records, and reported revenue break apart—before more budget is allocated using bad data.",
+      "Analytics engineering, CRM and MarTech integration, AI production workflows, campaign automation, and revenue systems architecture.",
     url: SITE_URL,
     siteName: "Paytonix",
     type: "website",
@@ -39,15 +39,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Paytonix — Revenue Data Reliability",
+        alt: "Paytonix — Revenue Systems Engineering",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paytonix — Revenue Data Reliability",
+    title: "Paytonix — Build the Systems Behind Your Growth",
     description:
-      "Find where customer journeys, attribution, CRM records, and reported revenue break apart—before more budget is allocated using bad data.",
+      "Analytics engineering, CRM and MarTech integration, AI production workflows, campaign automation, and revenue systems architecture.",
     images: ["/og-image.png"],
   },
 };

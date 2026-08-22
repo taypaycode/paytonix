@@ -1,6 +1,8 @@
 /**
  * src/components/hero/HeroSection.tsx
- * Above-the-fold hero establishing the revenue-data-reliability risk and proof visual.
+ * Above-the-fold hero establishing Paytonix as a revenue systems engineering
+ * studio — broader than data auditing, covering analytics, CRM, AI, automation,
+ * campaign infrastructure, and executive reporting.
  */
 
 import { ReliabilityConsole } from "@/components/ui/ReliabilityConsole";
@@ -19,9 +21,9 @@ export function HeroSection() {
       <div className="paytonix-stream-line absolute left-0 right-0 top-2/3 opacity-40" />
 
       <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/5 px-3 py-1 text-xs font-medium tracking-wide text-amber-400/90">
-          <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
-          Revenue Data Reliability
+        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-3 py-1 text-xs font-medium tracking-wide text-emerald-400/90">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          Revenue Systems Engineering
         </p>
 
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -30,38 +32,38 @@ export function HeroSection() {
               id="hero-heading"
               className="text-3xl font-semibold leading-[1.15] tracking-tight text-zinc-50 sm:text-4xl lg:text-[2.65rem] lg:leading-[1.12]"
             >
-              Your marketing numbers look precise. Are they actually right?
+              Build the systems behind your growth.
             </h1>
             <p className="mt-5 text-base leading-relaxed text-zinc-400 sm:text-lg">
-              Find where customer journeys, campaign attribution, CRM records,
-              and reported revenue break apart—before more budget is
-              allocated using bad data.
+              Paytonix architects and engineers the data, automation, AI, CRM,
+              analytics, and campaign infrastructure that modern revenue teams
+              depend on.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-zinc-400">
-              Paytonix traces revenue data from first touch through closed
-              business, identifies the gaps costing you visibility and
-              wasted spend, and installs controls that keep your reporting
-              trustworthy.
+              From customer-data pipelines and executive analytics to
+              LLM-powered workflows, CRM integrations, campaign orchestration,
+              and custom MarTech tooling—we turn fragmented platforms into
+              reliable operating systems.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="#request-assessment"
+                href="#start"
                 className="inline-flex h-12 items-center justify-center rounded-md bg-emerald-500 px-6 text-sm font-semibold text-zinc-950 shadow-[0_0_24px_var(--glow-emerald)] transition hover:bg-emerald-400 hover:shadow-[0_0_32px_var(--glow-emerald)] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
               >
-                Request a Revenue Data Assessment
+                Start a Project
               </a>
               <a
-                href="#detect"
+                href="#capabilities"
                 className="inline-flex h-12 items-center justify-center rounded-md border border-white/15 bg-transparent px-6 text-sm font-medium text-zinc-200 transition hover:border-sky-500/40 hover:bg-white/[0.03] hover:text-sky-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
               >
-                See What We Test
+                See What We Build ↓
               </a>
             </div>
 
             <p className="mt-8 border-t border-white/[0.06] pt-6 text-xs text-zinc-400">
-              Built for growth, RevOps, MarTech, and data teams operating
-              across multiple platforms.
+              Built for growth, RevOps, MarTech, analytics, sales engineering,
+              and data teams operating across complex stacks.
             </p>
           </div>
 
