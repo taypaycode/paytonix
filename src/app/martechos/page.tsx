@@ -697,7 +697,7 @@ State saved → runs/outbound-20260822.json`}
                   ))}
                 </ul>
                 <p className="mt-5 text-xs leading-relaxed text-zinc-500">
-                  The right buyer should think: "This was built for someone like me."
+                  The right buyer should think: &ldquo;This was built for someone like me.&rdquo;
                 </p>
               </div>
             </div>
@@ -762,9 +762,9 @@ State saved → runs/outbound-20260822.json`}
             <p className="mt-8 max-w-2xl text-sm leading-relaxed text-zinc-400">
               Language used intentionally:{" "}
               <em className="text-zinc-300">
-                "designed to reduce accidental duplication and unsafe execution"
+                &ldquo;designed to reduce accidental duplication and unsafe execution&rdquo;
               </em>
-              {" "}— not "guaranteed never to duplicate anything." Beta buyers respect precise
+              {" "}— not &ldquo;guaranteed never to duplicate anything.&rdquo; Beta buyers respect precise
               engineering language more than absolute marketing claims.
             </p>
           </div>
@@ -876,10 +876,10 @@ State saved → runs/outbound-20260822.json`}
 
             <p className="mx-auto mt-8 max-w-xl text-center text-sm leading-relaxed text-zinc-400">
               This turns the buyer&apos;s mental model from{" "}
-              <em className="text-zinc-500">"I&apos;m paying $99 to gamble on some GitHub repo"</em>{" "}
+              <em className="text-zinc-500">&ldquo;I&apos;m paying $99 to gamble on some GitHub repo&rdquo;</em>{" "}
               into{" "}
               <strong className="text-zinc-200">
-                "I&apos;m paying $99 for a bounded technical evaluation with a clear first success state."
+                &ldquo;I&apos;m paying $99 for a bounded technical evaluation with a clear first success state.&rdquo;
               </strong>
             </p>
           </div>
