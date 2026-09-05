@@ -1,6 +1,6 @@
 /**
  * src/components/sections/AssessmentForm.tsx
- * Revenue Data Integrity Assessment qualification intake via Formspree + Cal.com scheduling embed.
+ * Revenue Data Integrity Assessment qualification intake via HubSpot + Cal.com.
  */
 "use client";
 
@@ -8,8 +8,13 @@ import { FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CalEmbed } from "@/components/ui/CalEmbed";
 import { trackFunnelEvent } from "@/lib/analytics";
-
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvzleqv";
+import { BUSINESS_PHONE } from "@/lib/site";
+import {
+  buildIntakeSummary,
+  isHubSpotFormConfigured,
+  splitFullName,
+  submitToHubSpotForm,
+} from "@/lib/hubspot";
 
 const spendOptions = [
   "Under $10K / month",
@@ -81,24 +86,45 @@ export function AssessmentForm() {
     setStatus("submitting");
     setErrorMessage(null);
 
+    if (!isHubSpotFormConfigured("assessment")) {
+      setStatus("idle");
+      setErrorMessage(
+        "Form backend is not configured locally. Run npm run provision:hubspot, then restart the dev server.",
+      );
+      return;
+    }
+
     const form = event.currentTarget;
     const body = new FormData(form);
+    const name = String(body.get("name") ?? "");
+    const { firstname, lastname } = splitFullName(name);
+
+    const intakeSummary = buildIntakeSummary({
+      "Untrustworthy journey": String(body.get("untrustworthy_journey") ?? ""),
+      "Systems crossed": String(body.get("systems_crossed") ?? ""),
+      "Concern prompt": String(body.get("concern_prompt") ?? ""),
+      "Blocked decision": String(body.get("blocked_decision") ?? ""),
+      "Monthly spend": String(body.get("monthly_spend") ?? ""),
+      "Technical access": String(body.get("technical_access") ?? ""),
+      CRM: String(body.get("crm") ?? ""),
+      Warehouse: String(body.get("warehouse") ?? ""),
+      "Reporting platform": String(body.get("reporting_platform") ?? ""),
+      "Assessment timing": String(body.get("assessment_timing") ?? ""),
+    });
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        body,
-        headers: { Accept: "application/json" },
-      });
-
-      if (!response.ok) {
-        const data = (await response.json().catch(() => null)) as {
-          error?: string;
-        } | null;
-        throw new Error(
-          data?.error ?? "Submission failed. Please try again or book directly below.",
-        );
-      }
+      await submitToHubSpotForm(
+        "assessment",
+        [
+          { name: "email", value: String(body.get("email") ?? "") },
+          { name: "firstname", value: firstname },
+          { name: "lastname", value: lastname },
+          { name: "paytonix_lead_source", value: "assessment_form" },
+          { name: "paytonix_customer_type", value: "paytonix_services" },
+          { name: "paytonix_intake_summary", value: intakeSummary },
+        ],
+        { pageName: "Paytonix Assessment Form" },
+      );
 
       trackFunnelEvent("submit_assessment_form");
       form.reset();
@@ -158,6 +184,13 @@ export function AssessmentForm() {
               >
                 Book a qualification call directly
               </a>
+              {" "}or call{" "}
+              <a
+                href={`tel:${BUSINESS_PHONE.tel}`}
+                className="font-medium text-emerald-400/90 underline-offset-2 hover:text-emerald-300 hover:underline"
+              >
+                {BUSINESS_PHONE.display}
+              </a>
               .
             </p>
           </div>
@@ -167,16 +200,8 @@ export function AssessmentForm() {
               ref={formRef}
               onSubmit={handleSubmit}
               onChange={handleFormInteraction}
-              action={FORMSPREE_ENDPOINT}
-              method="POST"
               className="rounded-xl border border-white/[0.08] bg-zinc-900/30 p-6 sm:p-8"
             >
-              <input
-                type="hidden"
-                name="_subject"
-                value="Paytonix Revenue Data Integrity Assessment Request"
-              />
-
               <>
                 {status === "error" && errorMessage && (
                   <div
@@ -468,19 +493,22 @@ export function AssessmentForm() {
                     : "Submit Assessment Request"}
                 </button>
               </>
-
-              <div className="mt-8 border-t border-white/[0.06] pt-8" id="book-assessment">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
-                  Schedule a qualification call
-                </p>
-                <p className="mt-1 text-sm text-zinc-400">
-                  15 minutes to confirm fit before any assessment begins.
-                </p>
-                <div className="mt-4">
-                  <CalEmbed />
-                </div>
-              </div>
             </form>
+
+            <div
+              className="mt-8 rounded-xl border border-white/[0.08] bg-zinc-900/30 p-6 sm:p-8 sm:mt-0 sm:border-0 sm:bg-transparent sm:p-0 lg:mt-8 lg:border lg:border-white/[0.08] lg:bg-zinc-900/30 lg:p-8"
+              id="book-assessment"
+            >
+              <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">
+                Schedule a qualification call
+              </p>
+              <p className="mt-1 text-sm text-zinc-400">
+                15 minutes to confirm fit before any assessment begins.
+              </p>
+              <div className="mt-4">
+                <CalEmbed />
+              </div>
+            </div>
           </div>
         </div>
       </div>

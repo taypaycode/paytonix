@@ -4,6 +4,7 @@
  */
 
 import Link from "next/link";
+import { BUSINESS_PHONE } from "@/lib/site";
 
 const exploreLinks = [
   { href: "/revenue-data-integrity-assessment", label: "Assessment" },
@@ -25,6 +26,12 @@ export function SiteFooter() {
             <p className="mt-1 text-xs text-zinc-400">
               Revenue Data Reliability
             </p>
+            <a
+              href={`tel:${BUSINESS_PHONE.tel}`}
+              className="mt-3 inline-block text-sm text-zinc-300 hover:text-emerald-300"
+            >
+              {BUSINESS_PHONE.display}
+            </a>
           </div>
 
           <nav aria-label="Explore" className="flex items-center gap-4">

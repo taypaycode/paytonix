@@ -22,7 +22,9 @@ export type FunnelEvent =
   | "martechos_pricing_view"
   | "martechos_checkout_click"
   | "martechos_faq_expand"
-  | "martechos_final_cta_click";
+  | "martechos_final_cta_click"
+  | "start_martechos_beta_form"
+  | "submit_martechos_beta_form";
 
 /**
  * Sends a funnel event to GA4 via gtag, if configured. Safe to call

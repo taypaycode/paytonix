@@ -25,6 +25,12 @@ export const FOUNDER = {
   linkedIn: "https://www.linkedin.com/in/taypayton/",
 } as const;
 
+/** Published business line for Paytonix LLC (footer, schema.org, contact). */
+export const BUSINESS_PHONE = {
+  display: "(813) 444-8683",
+  tel: "+18134448683",
+} as const;
+
 export const ASSESSMENT_PRICE = {
   amount: "3500",
   currency: "USD",

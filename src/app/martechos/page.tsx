@@ -13,6 +13,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { ViewTracker } from "@/components/analytics/ViewTracker";
 import { MarTechOSCta } from "@/components/analytics/MarTechOSCta";
+import { MarTechOSBetaForm } from "@/components/sections/MarTechOSBetaForm";
 import { SITE_URL } from "@/lib/site";
 
 const CHECKOUT_URL = "https://buy.stripe.com/cNidRaaZc48f0JGaX48AE00";
@@ -884,6 +885,8 @@ State saved → runs/outbound-20260822.json`}
           </div>
         </section>
 
+        <MarTechOSBetaForm />
+
         {/* ── 13. FINAL CTA ────────────────────────────────────────────────── */}
         <section
           className="border-b border-white/[0.06]"
@@ -918,6 +921,12 @@ State saved → runs/outbound-20260822.json`}
                 <p className="text-xs text-zinc-400">
                   Limited to 5 founding purchases · one-time payment
                 </p>
+                <a
+                  href="#beta-interest"
+                  className="text-xs font-medium text-zinc-400 underline-offset-2 hover:text-zinc-200 hover:underline"
+                >
+                  Questions before checkout? ↓
+                </a>
                 <a
                   href="#workflow"
                   className="text-xs font-medium text-zinc-400 underline-offset-2 hover:text-zinc-200 hover:underline"

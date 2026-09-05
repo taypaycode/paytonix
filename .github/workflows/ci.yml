@@ -20,6 +20,13 @@ jobs:
 
       - run: npm ci
 
+      - name: HubSpot form unit tests
+        run: npm test
+        env:
+          NEXT_PUBLIC_HUBSPOT_PORTAL_ID: "247279773"
+          NEXT_PUBLIC_HUBSPOT_ASSESSMENT_FORM_ID: "fb1b9952-c198-4e8f-b68a-7295fd752904"
+          NEXT_PUBLIC_HUBSPOT_MARTECHOS_BETA_FORM_ID: "ba5bb7a9-3b91-45b8-b462-e613040e1cf0"
+
       - name: Lint
         run: npm run lint
 
@@ -27,6 +34,9 @@ jobs:
         run: npm run build
         env:
           VERCEL_ENV: production
+          NEXT_PUBLIC_HUBSPOT_PORTAL_ID: "247279773"
+          NEXT_PUBLIC_HUBSPOT_ASSESSMENT_FORM_ID: "fb1b9952-c198-4e8f-b68a-7295fd752904"
+          NEXT_PUBLIC_HUBSPOT_MARTECHOS_BETA_FORM_ID: "ba5bb7a9-3b91-45b8-b462-e613040e1cf0"
 
       - name: Start production server
         run: npm run start &
@@ -57,6 +67,9 @@ jobs:
         run: npm run build
         env:
           VERCEL_ENV: production
+          NEXT_PUBLIC_HUBSPOT_PORTAL_ID: "247279773"
+          NEXT_PUBLIC_HUBSPOT_ASSESSMENT_FORM_ID: "fb1b9952-c198-4e8f-b68a-7295fd752904"
+          NEXT_PUBLIC_HUBSPOT_MARTECHOS_BETA_FORM_ID: "ba5bb7a9-3b91-45b8-b462-e613040e1cf0"
 
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v12

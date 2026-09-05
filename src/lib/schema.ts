@@ -4,7 +4,7 @@
  * mirror visible page content — no invented ratings, dates, or locations.
  */
 
-import { ASSESSMENT_PRICE, FOUNDER, ORGANIZATION, SITE_URL } from "@/lib/site";
+import { ASSESSMENT_PRICE, BUSINESS_PHONE, FOUNDER, ORGANIZATION, SITE_URL } from "@/lib/site";
 import type { Article } from "@/lib/articles";
 
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
@@ -27,6 +27,13 @@ export function organizationSchema() {
       name: FOUNDER.name,
       url: FOUNDER.url,
       sameAs: [FOUNDER.linkedIn],
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: BUSINESS_PHONE.tel,
+      contactType: "customer service",
+      areaServed: "US",
+      availableLanguage: "English",
     },
     sameAs: ORGANIZATION.sameAs,
   };
