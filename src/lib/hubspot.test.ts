@@ -18,6 +18,18 @@ const PROD_LIKE_ENV = {
   NEXT_PUBLIC_HUBSPOT_MARTECHOS_BETA_FORM_ID: "ba5bb7a9-3b91-45b8-b462-e613040e1cf0",
 };
 
+describe("production HubSpot wiring contract", () => {
+  it("uses the production Paytonix portal and form GUIDs", () => {
+    expect(PROD_LIKE_ENV.NEXT_PUBLIC_HUBSPOT_PORTAL_ID).toBe("247279773");
+    expect(PROD_LIKE_ENV.NEXT_PUBLIC_HUBSPOT_ASSESSMENT_FORM_ID).toBe(
+      "fb1b9952-c198-4e8f-b68a-7295fd752904",
+    );
+    expect(PROD_LIKE_ENV.NEXT_PUBLIC_HUBSPOT_MARTECHOS_BETA_FORM_ID).toBe(
+      "ba5bb7a9-3b91-45b8-b462-e613040e1cf0",
+    );
+  });
+});
+
 describe("normalizeHubSpotFields", () => {
   it("drops unknown fields and empty optionals on the beta form", () => {
     const payload = normalizeHubSpotFields("martechos_beta", [

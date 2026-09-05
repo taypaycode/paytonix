@@ -49,6 +49,13 @@ jobs:
       - name: SEO regression checks (robots, sitemap, titles, canonicals, H1, JSON-LD, broken links)
         run: npm run validate:seo -- http://localhost:3000
 
+      - name: HubSpot form production wiring checks
+        run: npm run validate:forms -- http://localhost:3000
+        env:
+          EXPECTED_HUBSPOT_PORTAL_ID: "247279773"
+          EXPECTED_HUBSPOT_ASSESSMENT_FORM_ID: "fb1b9952-c198-4e8f-b68a-7295fd752904"
+          EXPECTED_HUBSPOT_MARTECHOS_BETA_FORM_ID: "ba5bb7a9-3b91-45b8-b462-e613040e1cf0"
+
   lighthouse:
     name: Lighthouse CI
     runs-on: ubuntu-latest
@@ -71,16 +78,15 @@ jobs:
           NEXT_PUBLIC_HUBSPOT_ASSESSMENT_FORM_ID: "fb1b9952-c198-4e8f-b68a-7295fd752904"
           NEXT_PUBLIC_HUBSPOT_MARTECHOS_BETA_FORM_ID: "ba5bb7a9-3b91-45b8-b462-e613040e1cf0"
 
+      - name: Start production server
+        run: npm run start &
+        env:
+          PORT: 3000
+
+      - name: Wait for server
+        run: npx wait-on http://localhost:3000 --timeout 30000
+
       - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v12
-        with:
-          urls: |
-            http://localhost:3000/
-            http://localhost:3000/revenue-data-integrity-assessment
-            http://localhost:3000/about
-            http://localhost:3000/insights/why-crm-and-warehouse-revenue-disagree
-          startServerCommand: "npm run start"
-          startServerReadyPattern: "Ready in"
-          uploadArtifacts: true
-          temporaryPublicStorage: true
-          configPath: "./lighthouserc.json"
+        run: npx @lhci/cli autorun
+        env:
+          LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.sha }}

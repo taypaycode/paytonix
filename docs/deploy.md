@@ -35,6 +35,14 @@ Vercel will deploy the revert commit. Do not force-push `main`.
 
 ## Post-deploy smoke test
 
+Automated wiring check (no test contact created):
+
+```bash
+npm run smoke:prod
+```
+
+Manual end-to-end (creates real CRM contacts):
+
 1. Submit the assessment form at `/revenue-data-integrity-assessment#request-assessment`
 2. Submit the beta form at `/martechos#beta-interest`
 3. In HubSpot → Marketing → Forms, confirm both submission counters increment

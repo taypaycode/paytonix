@@ -1,6 +1,12 @@
 {
   "ci": {
     "collect": {
+      "url": [
+        "http://localhost:3000/",
+        "http://localhost:3000/revenue-data-integrity-assessment",
+        "http://localhost:3000/about",
+        "http://localhost:3000/insights/why-crm-and-warehouse-revenue-disagree"
+      ],
       "numberOfRuns": 1,
       "settings": {
         "onlyCategories": ["performance", "accessibility", "seo", "best-practices"]
