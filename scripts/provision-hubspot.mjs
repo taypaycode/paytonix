@@ -6,6 +6,8 @@
  *
  * Usage (from website-infra/paytonix):
  *   npm run provision:hubspot
+ *   node scripts/provision-hubspot.mjs --test-portal
+ *     (MarTechOS test portal 247279988: properties only, uses HUBSPOT_TEST_SERVICE_KEY)
  *
  * Token resolution (first match wins):
  *   HUBSPOT_ACCESS_TOKEN, HUBSPOT_MARTECHOS_SERVICE_KEY, HUBSPOT_SERVICE_KEY,
@@ -53,10 +55,12 @@ function pickToken(...keys) {
   return { value: "", source: "(none)" };
 }
 
+const useTestPortal = process.argv.includes("--test-portal");
+
 const tokenPick = pickToken(
-  "HUBSPOT_ACCESS_TOKEN",
-  "HUBSPOT_MARTECHOS_SERVICE_KEY",
-  "HUBSPOT_SERVICE_KEY",
+  ...(useTestPortal
+    ? ["HUBSPOT_ACCESS_TOKEN", "HUBSPOT_TEST_SERVICE_KEY"]
+    : ["HUBSPOT_ACCESS_TOKEN", "HUBSPOT_MARTECHOS_SERVICE_KEY", "HUBSPOT_SERVICE_KEY"]),
 );
 const TOKEN = tokenPick.value;
 
@@ -198,6 +202,43 @@ const CUSTOM_PROPERTIES = [
     groupName: "contactinformation",
     description:
       "Free-text intake from Paytonix website forms (assessment or beta interest).",
+  },
+  {
+    name: "martechos_apollo_person_id",
+    label: "MarTechOS Apollo person id",
+    type: "string",
+    fieldType: "text",
+    groupName: "contactinformation",
+    description:
+      "Apollo.io person id from MarTechOS enrichment; used to skip paid re-enrich on workflow reruns.",
+  },
+  {
+    name: "paytonix_outbound_status",
+    label: "Paytonix outbound status",
+    type: "enumeration",
+    fieldType: "select",
+    groupName: "contactinformation",
+    description:
+      "MarTechOS cold outbound suppression: set when a contact replied, opted out, bounced, or booked.",
+    options: [
+      { label: "Active", value: "active", displayOrder: 0, hidden: false },
+      { label: "Replied", value: "replied", displayOrder: 1, hidden: false },
+      { label: "Opt out", value: "opt_out", displayOrder: 2, hidden: false },
+      { label: "Bounced", value: "bounced", displayOrder: 3, hidden: false },
+      { label: "Booked", value: "booked", displayOrder: 4, hidden: false },
+      {
+        label: "Meeting scheduled",
+        value: "meeting_scheduled",
+        displayOrder: 5,
+        hidden: false,
+      },
+      {
+        label: "Do not email",
+        value: "do_not_email",
+        displayOrder: 6,
+        hidden: false,
+      },
+    ],
   },
 ];
 
@@ -363,6 +404,14 @@ async function main() {
   console.log("\nEnsuring contact properties…");
   for (const property of CUSTOM_PROPERTIES) {
     await ensureProperty(property);
+  }
+
+  if (useTestPortal) {
+    console.log(
+      "\nTest portal mode: paytonix_* contact properties are ready for MarTechOS sandbox/micro proof.",
+    );
+    console.log("Skipped marketing forms and .env.local (production Paytonix site unchanged).");
+    return;
   }
 
   console.log("\nEnsuring marketing forms…");
